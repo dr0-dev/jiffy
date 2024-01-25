@@ -91,6 +91,9 @@ class Parser {
   }
 
   String _matchesOrdinalDates(String input, List<String> ordinals) {
+   if(ordinals.contains('.')){
+      ordinals = [];
+    }
     final matches =
         // ignore: prefer_interpolation_to_compose_strings
         RegExp(r'\d+\s*(' + ordinals.join('|') + ')').allMatches(input);
